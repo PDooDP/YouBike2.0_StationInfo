@@ -55,7 +55,7 @@ def loadJson(city):
     data.encoding = "utf-8"
     data = json.loads(data.text)
     
-    # 三個城市的json格式皆不相同, 呼叫dataPrePorcess函式轉成相同格式方便日後處理
+    # 三個城市的json格式皆不相同, 呼叫dataPrePorcess函式轉成相同格式方便資料整理
     if city == "台北":
         data_url = data
     elif city == "台中":
@@ -70,6 +70,7 @@ def loadJson(city):
 # 資料載入dataframe前的前置作業
 # 由於取得的data_bike是串列, 改成字典較好做資料處理
 # 將串列加入key值轉成新的字典: new_data_bike
+# 回傳newDataList函式前處理好的資料到loadJson函式
 def dataPreProcess(data_bike):
     index_list = []
     for i in range(len(data_bike)):
